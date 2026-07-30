@@ -241,13 +241,36 @@
         <a href="#top">Nach oben <i data-i="arrow"></i></a>
       </div>
     </footer>
-  <script src="script.js"></script>
+   <script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js"></script>
-  <script src="pdfjs/pdf.js"></script>
-<script>
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/pdf.worker.js';
-</script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
+
+    const url = 'Praktikumsflyer_FIAE 6.pdf'; // Pfad zur PDF-Datei
+
+    pdfjsLib.getDocument(url).promise.then((pdf) => {
+      const pdfViewer = document.getElementById('pdf-viewer');
+
+      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+        pdf.getPage(pageNumber).then((page) => {
+          const scale = 1.5;
+          const viewport = page.getViewport({ scale: scale });
+
+          const canvas = document.createElement('canvas');
+          pdfViewer.appendChild(canvas);
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+          page.render(renderContext);
+        });
+      }
+    });
+  </script>
  
  </body>
 </html>
