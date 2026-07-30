@@ -114,6 +114,14 @@
         } catch (e) {}
       });
 
+/* ---------- Hamburger Menu Toggle ---------- */
+function toggleMenu() {
+  const nav = document.querySelector('.nav');
+  nav.classList.toggle('active');
+}
+
+document.querySelector('.menu-toggle').addEventListener('click', toggleMenu);
+
       /* ---------- Scroll reveal ---------- */
       const io = new IntersectionObserver(
         (entries) => {
