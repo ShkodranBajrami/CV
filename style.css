@@ -166,82 +166,120 @@
         z-index: 0;
       }
 
-      /* ============ NAV ============ */
-      .nav {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        border-bottom: 2px solid var(--ink);
-        background: rgba(252, 247, 238, 0.85);
-        backdrop-filter: blur(8px);
-      }
-      .nav-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 20px;
-        max-width: var(--wrap);
-        margin: 0 auto;
-      }
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-family: var(--display);
-        font-weight: 800;
-        font-size: 18px;
-      }
-      .logo .mark {
-        display: grid;
-        place-items: center;
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        border: 2px solid var(--ink);
-        background: var(--coral);
-        color: var(--paper);
-        box-shadow: var(--shadow-sm);
-      }
-      .nav-links {
-        display: none;
-        gap: 4px;
-      }
-      .nav-links a {
-        padding: 6px 12px;
-        border-radius: 999px;
-        font-size: 14px;
-        font-weight: 600;
-        transition: background 0.15s;
-      }
-      .nav-links a:hover {
-        background: var(--lime);
-      }
-      .nav-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 2px solid var(--ink);
-        border-radius: 999px;
-        padding: 6px 16px;
-        font-size: 14px;
-        font-weight: 600;
-        background: var(--grape);
-        color: var(--paper);
-        box-shadow: var(--shadow-sm);
-        transition: transform 0.15s;
-      }
-      .nav-cta:hover {
-        transform: translateY(-2px);
-      }
-      .nav-cta svg {
-        width: 16px;
-        height: 16px;
-      }
-      @media (min-width: 860px) {
-        .nav-links {
-          display: flex;
-        }
-      }
+     /* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 2px solid var(--ink);
+  background: rgba(252, 247, 238, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.logo .mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid var(--ink);
+  background: var(--coral);
+  color: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-links {
+  display: none; /* Versteckt die Navigationslinks standardmäßig */
+  gap: 4px;
+}
+
+.nav-links a {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.nav-links a:hover {
+  background: var(--lime);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--grape);
+  color: var(--paper);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+}
+
+.nav-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Hamburger-Button Stile */
+.menu-toggle {
+  display: none; /* Versteckt den Hamburger-Button standardmäßig */
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media (max-width: 860px) {
+  .menu-toggle {
+    display: block; /* Zeigt den Hamburger-Button auf mobilen Geräten an */
+  }
+
+  .nav-links {
+    display: none; /* Versteckt die Navigationslinks standardmäßig */
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--paper);
+    width: 100%;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+  }
+
+  .nav.active .nav-links {
+    display: flex; /* Zeigt die Navigationslinks an, wenn aktiv */
+  }
+}
+
+@media (min-width: 860px) {
+  .nav-links {
+    display: flex; /* Zeigt das Menü auf größeren Bildschirmen an */
+  }
+}
 
       /* ============ HERO ============ */
       .hero {
