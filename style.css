@@ -206,10 +206,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-.nav-links {
-  display: none; /* Versteckt die Navigationslinks standardmäßig */
-  gap: 4px;
-}
+
 
 .nav-links a {
   padding: 6px 12px;
