@@ -242,35 +242,6 @@
       </div>
     </footer>
   <script src="script.js"></script>
-  <script src="pdfjs/pdf.js"></script>
-<script>
-  const url = 'Praktikumsflyer_FIAE 6.pdf'; // Pfad zur PDF-Datei
-
-  const pdfjsLib = window['pdfjs-dist/build/pdf'];
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/pdf.worker.js';
-
-  pdfjsLib.getDocument(url).promise.then((pdf) => {
-    const pdfViewer = document.getElementById('pdf-viewer');
-
-    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-      pdf.getPage(pageNumber).then((page) => {
-        const scale = 1.5;
-        const viewport = page.getViewport({ scale: scale });
-
-        const canvas = document.createElement('canvas');
-        pdfViewer.appendChild(canvas);
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        const renderContext = {
-          canvasContext: context,
-          viewport: viewport,
-        };
-        page.render(renderContext);
-      });
-    }
-  });
-</script>
+ 
  </body>
 </html>
